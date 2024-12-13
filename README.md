@@ -1,6 +1,5 @@
 pip install playwright
 
-create cookie folder!
 Screenshot:![image](https://github.com/user-attachments/assets/8a60abb0-46d7-42b8-8a7f-63f31a06f2b2)
 
 RU:
