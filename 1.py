@@ -6,7 +6,6 @@ from playwright.sync_api import sync_playwright
 from twocaptcha import TwoCaptcha
 from concurrent.futures import ThreadPoolExecutor
 
-# Список User-Agent для случайной генерации
 user_agents = [
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0',
@@ -17,11 +16,9 @@ user_agents = [
     'Mozilla/5.0 (Windows NT 6.1; Win64; rv:55.0) Gecko/20100101 Firefox/55.0',
 ]
 
-# API Key для 2Captcha
 api_key = 'YOUR_API_KEY'  # ВАШ API KEY ОТ 2CAPTCHA
 solver = TwoCaptcha(api_key)
 
-# Функции для загрузки данных
 def load_login_password_from_file(login_file):
     login_data = []
     with open(login_file, 'r') as f:
@@ -209,7 +206,6 @@ def process_accounts_from_file(filename, robux_threshold, cookies_dir, use_proxy
     with sync_playwright() as p:
         browser = p.firefox.launch(headless=True)
         
-        # Создаем пул потоков
         with ThreadPoolExecutor(max_workers=num_threads) as executor:
             if filename:
                 login_data = load_login_password_from_file(filename)
